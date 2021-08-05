@@ -4,26 +4,15 @@ import java.util.LinkedList;
 import java.util.stream.Collectors;
 
 public class Teacher extends Person {
-    private Klass klass;
     private LinkedList<Klass> classesList = new LinkedList<>();
-    String teacherString = "I am a Teacher.";
 
     public Teacher(int id, String name, int age, LinkedList<Klass> classesList) {
         super(id, name, age);
         this.classesList = classesList;
     }
 
-    public Teacher(String name, int age, Klass klass) {
-        super(name, age);
-        this.klass = klass;
-    }
-
     public Teacher(int id, String name, int age) {
         super(id, name ,age);
-    }
-
-    public Klass getKlass() {
-        return klass;
     }
 
     public LinkedList<Klass> getClasses() {
@@ -40,7 +29,7 @@ public class Teacher extends Person {
                                                                 .collect(Collectors.joining(", ")));
         }
 
-        return String.format("%s %s %s", super.introduce(), teacherString, classString);
+        return String.format("%s I am a Teacher. %s", super.introduce(), classString);
     }
 
     public String introduceWith(Student student) {
@@ -50,7 +39,7 @@ public class Teacher extends Person {
             supplementString = "I don't teach";
         }
 
-        return String.format("%s %s %s %s.", super.introduce(), teacherString, supplementString, student.getName());
+        return String.format("%s I am a Teacher. %s %s.", super.introduce(), supplementString, student.getName());
     }
 
     public boolean isTeaching(Student student) {

@@ -1,22 +1,12 @@
 package practice09;
 
 public class Person {
-    private int id;
+    private final int id;
     private final String name;
-    private int age;
+    private final int age;
 
     public Person(int id, String name, int age) {
         this.id = id;
-        this.name = name;
-        this.age = age;
-    }
-
-    public Person(int id, String name, Klass klass) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public Person(String name, int age) {
         this.name = name;
         this.age = age;
     }
@@ -44,4 +34,6 @@ public class Person {
         }
         return id == person.id && name.equals(person.name) && age == person.age;
     }
+
+    //add override for hashcode. Find out why and when to override
 }

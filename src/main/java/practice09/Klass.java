@@ -2,11 +2,12 @@ package practice09;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Klass {
     private final int klass;
     private Student leader;
-    private final List<Student> studentList = new ArrayList<Student>();
+    private final List<Student> studentList = new ArrayList<>();
 
     public Klass(int klass) {
         this.klass = klass;
@@ -37,4 +38,18 @@ public class Klass {
         studentList.add(member);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Klass)) return false;
+        Klass klass1 = (Klass) o;
+        return klass == klass1.klass && Objects.equals(leader, klass1.leader) && Objects.equals(studentList, klass1.studentList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(klass, leader, studentList);
+    }
+
+    //override equals
 }

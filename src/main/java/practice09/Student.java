@@ -14,13 +14,12 @@ public class Student extends Person {
 
     public String introduce() {
         Student leader = klass.getLeader();
-        String introduceString = "I am a Student.";
         String supplementString = "I am at Class";
 
         if (leader != null) {
             supplementString = "I am Leader of Class";
         }
 
-        return String.format("%s %s %s %s.", super.introduce(), introduceString, supplementString, klass.getNumber());
+        return String.format("%s I am a Student. %s %s.", super.introduce(), supplementString, klass.getNumber());
     }
 }
